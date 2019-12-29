@@ -49,12 +49,12 @@ cd $DEST_DIR
 sha256sum -c $LOCAL_SUM
 if [ $? -ne 0 ]; then
     echo >&2 "ERROR: SHA256 checksum does not match. Try running the script again, if that does not fix the issue the source files are probably corrupt. ";
-    echo >&2 "INFO: This script will now delete the files just downloaded"
+    echo "INFO: This script will now delete the files just downloaded"
     rm -i $LOCAL_WORLD
     rm -i $LOCAL_SUM
 
     cd $OLDPWD
-    echo >&2 "Aborting."
+    echo >&2 "ERROR: Aborting."
     exit 1
 fi
 cd $OLDPWD
